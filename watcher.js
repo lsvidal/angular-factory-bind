@@ -1,8 +1,11 @@
 'use strict';
 
+var factory = {};
+
 var app=angular.module('Watcher', []);
 
-var factory = app.factory('WatcherFactory', function(){
+app.factory('WatcherFactory', function() {
+
 	var WatcherFactory = {};
 	WatcherFactory.data = {value:false};
 	WatcherFactory.setTrue = function() {
@@ -13,6 +16,7 @@ var factory = app.factory('WatcherFactory', function(){
 		console.log('setFalse called');
 		WatcherFactory.data.value = false;
 	};
+	factory = WatcherFactory;
 	return WatcherFactory;
 });
 
