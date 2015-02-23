@@ -1,0 +1,29 @@
+
+#app {
+	border-style: solid;
+	border-color: #00F;
+	width: 380px;
+	margin: 0 auto;
+}
+
+#js-buttons {
+	border-style: solid;
+	border-color: #0C0;
+	width: 350px;
+	margin: 0 auto;
+}
+
+#js-buttons p {
+	display: inline;
+}
+
+#angular-buttons {
+	border-style: solid;
+	border-color: #0C0;
+	width: 350px;
+	margin: 0 auto;
+}
+
+#angular-buttons p {
+	display: inline;
+}

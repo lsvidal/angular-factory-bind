@@ -2,11 +2,20 @@
 <html>
 	<head>
 			<meta charset="UTF-8">
+			<link rel="stylesheet" type="text/css" href="main.css">
 	</head>
 	<body>
-		<div ng-app="Watcher" ng-controller="WatcherController as watcher">
-			<button ng-click="watcher.setTrue()">Set True</button>
-			<button ng-click="watcher.setFalse()">Set False</button>
+		<div id="app" ng-app="Watcher" ng-controller="WatcherController as watcher">
+			<div id="js-buttons">
+				<p>External functions:</p>
+				<button onclick="setTrue()">Set True</button>
+				<button onclick="setFalse()">Set False</button>
+			</div>
+			<div id="angular-buttons">
+				<p>Angular controller functions:</p>
+				<button ng-click="watcher.setTrue()">Set True</button>
+				<button ng-click="watcher.setFalse()">Set False</button>
+			</div>
 			<p>Value through factory reference: {{watcher.factory.data.value}}</p>
 			<p>Value through object reference: {{watcher.factoryData.value}}</p>
 		</div>

@@ -47,3 +47,11 @@ app.controller('WatcherController', ['$scope', 'WatcherFactory', function($scope
 		this.factory.setFalse();
 	};
 }]);
+
+function setTrue() {
+	factory.$setTrue();
+};
+
+function setFalse() {
+	factory.$setFalse();
+};
