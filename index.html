@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			<meta charset="UTF-8">
+	</head>
+	<body>
+		<div ng-app="Watcher" ng-controller="WatcherController as watcher">
+			<button ng-click="watcher.setTrue()">Set True</button>
+			<button ng-click="watcher.setFalse()">Set False</button>
+			<p>Value through factory reference: {{watcher.factory.data.value}}</p>
+			<p>Value through object reference: {{watcher.factoryData.value}}</p>
+		</div>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+		<script type="text/javascript" src="watcher.js"></script>
+	</body>
+</html>
