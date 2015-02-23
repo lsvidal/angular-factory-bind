@@ -4,8 +4,11 @@ var factory = {};
 
 var app=angular.module('Watcher', []);
 
-app.factory('WatcherFactory', function() {
+app.factory('WatcherFactory', ['$rootScope', function($rootScope) {
 
+	function sendEvent() {
+		$rootScope.$broadcast('WatcherChanged');
+	};
 	var WatcherFactory = {};
 	WatcherFactory.data = {value:false};
 	WatcherFactory.setTrue = function() {
@@ -16,13 +19,25 @@ app.factory('WatcherFactory', function() {
 		console.log('setFalse called');
 		WatcherFactory.data.value = false;
 	};
+	WatcherFactory.$setTrue = function() {
+		WatcherFactory.setTrue();
+		sendEvent();
+	};
+	WatcherFactory.$setFalse = function() {
+		WatcherFactory.setFalse();
+		sendEvent();
+	};
 	factory = WatcherFactory;
 	return WatcherFactory;
-});
+}]);
 
-app.controller('WatcherController', ['WatcherFactory', function(WatcherFactory) {
+app.controller('WatcherController', ['$scope', 'WatcherFactory', function($scope, WatcherFactory) {
 	this.factory = WatcherFactory;
 	this.factoryData = WatcherFactory.data;
+
+	$scope.$on('WatcherChanged', function(ev) {
+		$scope.$apply();
+	});
 	this.setTrue = function() {
 		console.log('Calling setTrue');
 		this.factory.setTrue();
